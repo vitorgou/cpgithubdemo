@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo hola! > sayhi.txt
+      - echo oi! >> sayhi.txt
+      - echo halo! >> sayhi.txt
+      - echo ciao! >> sayhi.txt
+artifacts: 
+  files: 
+    - sayhi.txt
