@@ -6,8 +6,6 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub 'happy-${AWS::AccountId}-${AWS::Region}'
-      VersioningConfiguration:
-       Status: Enabled
 
 Outputs:
   Parameter:
