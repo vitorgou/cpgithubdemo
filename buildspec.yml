@@ -9,6 +9,7 @@ phases:
       - echo oi! >> sayhi.txt
       - echo halo! >> sayhi.txt
       - echo ciao! >> sayhi.txt
+      - cat sayhi.txt
 artifacts: 
   files: 
     - sayhi.txt
