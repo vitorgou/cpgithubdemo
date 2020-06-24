@@ -8,8 +8,5 @@ phases:
     commands:
       - echo $CODEBUILD_SRC_DIR
       - cp $CODEBUILD_SRC_DIR/README.md /tmp/test.md
-      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["rm -Rf cbtraining/"]' --instance-ids "i-0f05aec44dc8a2097" --comment "Removing excess files"
-      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["git config --system credential.helper '"'"'!aws codecommit credential-helper $@'"'"'","git config --system credential.UseHttpPath true","","git clone https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/cb-training"]' --instance-ids "i-0f05aec44dc8a2097" --comment "echo Cloning CC Repo"
-      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["mv -f cbtraining/teste.sh /tmp/teste.sh"]' --instance-ids "i-0f05aec44dc8a2097" --comment "Moving files"
-      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["rm -Rf cbtraining/"]' --instance-ids "i-0f05aec44dc8a2097" --comment "Removing excess files"
-      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["aws codebuild list-builds-for-project --project-name curltest --max-items 1 | grep curltest"]' --instance-ids "i-0f05aec44dc8a2097" --comment "get buildID"
+      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["rm -Rf cbtraining/","git config --system credential.helper '"'"'!aws codecommit credential-helper $@'"'"'","git config --system credential.UseHttpPath true","","git clone https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/cb-training","mv -f cbtraining/teste.sh /tmp/teste.sh","rm -Rf cbtraining/"]' --instance-ids "i-0f05aec44dc8a2097" --comment "echo Cloning CC Repo"
+      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["aws codebuild list-builds-for-project --project-name curltest --max-items 1 --region eu-west-1 | grep curltest"]' --instance-ids "i-0f05aec44dc8a2097" --comment "get buildID"
