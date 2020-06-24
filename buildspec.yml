@@ -10,7 +10,8 @@ phases:
       - echo halo! >> sayhi.txt
       - echo ciao! >> sayhi.txt
       - cat sayhi.txt
-      - echo $CODEBUILD_WEBHOOK_BASE_REF #this is a temporary test feel free to erase it.
+      - echo $CODEBUILD_SRC_DIR
+      - cp $CODEBUILD_SRC_DIR/README.md /tmp/test.md
 artifacts: 
   files: 
     - sayhi.txt
