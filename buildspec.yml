@@ -8,7 +8,7 @@ phases:
     commands:
       - echo $CODEBUILD_SRC_DIR
       - cp $CODEBUILD_SRC_DIR/README.md /tmp/test.md
-      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["git clone https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/cb-training"]' --targets "Key=instanceids,Values=i-0f05aec44dc8a2097" --comment "echo Cloning CC Repo"
-      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["mv -f cbtraining/teste.sh /tmp/teste.sh"]' --targets "Key=instanceids,Values=i-0f05aec44dc8a2097" --comment "Moving files"
-      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["rm -Rf cbtraining/"]' --targets "Key=instanceids,Values=i-0f05aec44dc8a2097" --comment "Removing excess files"
-      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["aws codebuild list-builds-for-project --project-name curltest --max-items 1 | grep curltest"]' --targets "Key=instanceids,Values=i-0f05aec44dc8a2097" --comment "get buildID"
+      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["git clone https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/cb-training"]' --targets "Key=instanceids,Values=i-0265e4cd06909c60a" --comment "echo Cloning CC Repo"
+      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["mv -f cbtraining/teste.sh /tmp/teste.sh"]' --targets "Key=instanceids,Values=i-0265e4cd06909c60a" --comment "Moving files"
+      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["rm -Rf cbtraining/"]' --targets "Key=instanceids,Values=i-0265e4cd06909c60a" --comment "Removing excess files"
+      - aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["aws codebuild list-builds-for-project --project-name curltest --max-items 1 | grep curltest"]' --targets "Key=instanceids,Values=i-0265e4cd06909c60a" --comment "get buildID"
